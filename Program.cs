@@ -14,6 +14,7 @@ namespace LinkedList
             linkedList.AddFirst(30);
             linkedList.AddLast(98);
             linkedList.AddLast(20);
+            linkedList.RemoveFirst();
 
             linkedList.RemoveLast();
             ;

@@ -103,11 +103,13 @@ namespace LinkedList
                 return false;
             }
 
-            while (cursor != null)
+            while (cursor.Next != null)
             {
                 if (cursor.Next.Next == null)
                 {
-                    Tail = cursor.Next;
+                    Tail = cursor;
+                    cursor.Next = null;
+                    count--;
                 }
             }
             return true;
