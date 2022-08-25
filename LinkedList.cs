@@ -6,7 +6,7 @@ namespace LinkedList
         public Node<T> Head;
         public Node<T> Tail;
 
-        public int count { get; private set;}
+        public int count { get; private set; }
 
 
         public void AddFirst(T value)
@@ -23,7 +23,7 @@ namespace LinkedList
                 nodeToInsert.Next = Head;
                 Head = nodeToInsert;
                 count++;
-            }    
+            }
 
         }
         public void AddLast(T value)
@@ -45,14 +45,72 @@ namespace LinkedList
 
         public void AddBefore(Node<T> node, T value)
         {
-            for (int i = 0; i < count; i++)
+            Node<T> cursor = Head.Next;
+
+            while (cursor != null)
             {
-                if (.Next == node)
+                if (cursor == node)
                 {
                     Node<T> NewNode = new Node<T>(value);
                     NewNode.Next = node;
+                    cursor.Next = NewNode;
                 }
             }
+        }
+
+        public void AddAfter(Node<T> node, T value)
+        {
+            Node<T> cursor = Head.Next;
+
+            while(cursor != null)
+            {
+                if(cursor == node)
+                {
+                    Node<T> NewNode = new Node<T>(value);
+                    NewNode.Next = node.Next;
+                    cursor.Next = NewNode.Next;
+                }
+            }
+        }
+
+        public bool RemoveFirst()
+        {
+            if(Head == null)
+            {
+                return false;
+            }
+
+            else
+            {
+                if(Head == Tail)
+                {
+                    Tail = null;
+                }
+                Head = Head.Next;
+                count--;
+            }
+
+            return true;
+
+        }
+
+        public bool RemoveLast()
+        {
+            Node<T> cursor = Head.Next;
+
+            if(Head == null)
+            {
+                return false;
+            }
+
+            while (cursor != null)
+            {
+                if (cursor.Next.Next == null)
+                {
+                    Tail = cursor.Next;
+                }
+            }
+            return true;
         }
     }
 }
