@@ -96,7 +96,7 @@ namespace LinkedList
 
         public bool RemoveLast()
         {
-            Node<T> cursor = Head.Next;
+            Node<T> cursor = Head;
 
             if(Head == null)
             {

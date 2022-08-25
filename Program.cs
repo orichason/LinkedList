@@ -19,5 +19,5 @@ namespace LinkedList
             linkedList.RemoveLast();
             ;
         }
-    }
+    } 
 }
