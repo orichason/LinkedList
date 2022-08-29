@@ -114,5 +114,29 @@ namespace LinkedList
             }
             return true;
         }
+
+        public bool Remove(T value)
+        {
+            Node<T> curser = Head;
+
+            while (curser.Next != null)
+            {
+               
+            }
+
+            return false;
+        }
+
+        public void Clear()
+        {
+            Head = null;
+            Tail = null;
+            count = 0;
+        }
+
+        public bool Contains(T value)
+        {
+            
+        }
     }
 }
