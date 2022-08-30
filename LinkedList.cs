@@ -62,9 +62,9 @@ namespace LinkedList
         {
             Node<T> cursor = Head.Next;
 
-            while(cursor != null)
+            while (cursor != null)
             {
-                if(cursor == node)
+                if (cursor == node)
                 {
                     Node<T> NewNode = new Node<T>(value);
                     NewNode.Next = node.Next;
@@ -75,14 +75,14 @@ namespace LinkedList
 
         public bool RemoveFirst()
         {
-            if(Head == null)
+            if (Head == null)
             {
                 return false;
             }
 
             else
             {
-                if(Head == Tail)
+                if (Head == Tail)
                 {
                     Tail = null;
                 }
@@ -98,7 +98,7 @@ namespace LinkedList
         {
             Node<T> cursor = Head;
 
-            if(Head == null)
+            if (Head == null)
             {
                 return false;
             }
@@ -117,11 +117,37 @@ namespace LinkedList
 
         public bool Remove(T value)
         {
-            Node<T> curser = Head;
 
-            while (curser.Next != null)
+            if (Head.Value.Equals(value))
             {
-               
+                if (Head == Tail)
+                {
+                    Clear();
+                }
+                else
+                {
+                    Head = Head.Next;
+                }
+                return true;
+            }
+
+            Node<T> cursor = Head;
+
+            while (cursor.Next != null)
+            {
+                if (cursor.Next.Value.Equals(value))
+                {
+                    if(cursor.Next == Tail)
+                    {
+                        Tail = cursor;
+                    }
+                    cursor.Next = cursor.Next.Next;
+                    count--;
+                    return true;
+
+                }
+
+                cursor = cursor.Next;
             }
 
             return false;
@@ -134,9 +160,26 @@ namespace LinkedList
             count = 0;
         }
 
-        public bool Contains(T value)
+        public Node<T> Search(T value)
         {
-            
+            Node<T> cursor = Head;
+
+            while(cursor != null)
+            {
+                if(cursor.Value.Equals(value))
+                {
+                    return cursor;
+                }
+
+                cursor = cursor.Next;
+            }
+
+            return null;
+        }
+
+        public bool Contains (T value)
+        {
+            return Search(value) != null;
         }
     }
 }
