@@ -6,7 +6,7 @@ namespace LinkedList
         public Node<T> Head;
         public Node<T> Tail;
 
-        public int count { get; private set; }
+        public int Count { get; private set; }
 
 
         public void AddFirst(T value)
@@ -14,7 +14,7 @@ namespace LinkedList
             if (Head == null)
             {
                 Head = Tail = new Node<T>(value);
-                count++;
+                Count++;
             }
 
             else
@@ -22,7 +22,7 @@ namespace LinkedList
                 Node<T> nodeToInsert = new Node<T>(value);
                 nodeToInsert.Next = Head;
                 Head = nodeToInsert;
-                count++;
+                Count++;
             }
 
         }
@@ -31,7 +31,7 @@ namespace LinkedList
             if (Head == null)
             {
                 Head = Tail = new Node<T>(value);
-                count++;
+                Count++;
             }
 
             else
@@ -39,7 +39,7 @@ namespace LinkedList
                 Node<T> node = new Node<T>(value);
                 Tail.Next = node;
                 Tail = node;
-                count++;
+                Count++;
             }
         }
 
@@ -87,7 +87,7 @@ namespace LinkedList
                     Tail = null;
                 }
                 Head = Head.Next;
-                count--;
+                Count--;
             }
 
             return true;
@@ -109,7 +109,7 @@ namespace LinkedList
                 {
                     Tail = cursor;
                     cursor.Next = null;
-                    count--;
+                    Count--;
                 }
             }
             return true;
@@ -142,7 +142,7 @@ namespace LinkedList
                         Tail = cursor;
                     }
                     cursor.Next = cursor.Next.Next;
-                    count--;
+                    Count--;
                     return true;
 
                 }
@@ -157,7 +157,7 @@ namespace LinkedList
         {
             Head = null;
             Tail = null;
-            count = 0;
+            Count = 0;
         }
 
         public Node<T> Search(T value)
