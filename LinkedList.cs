@@ -54,6 +54,7 @@ namespace LinkedList
                     Node<T> NewNode = new Node<T>(value);
                     NewNode.Next = node;
                     cursor.Next = NewNode;
+                    Count++;
                 }
             }
         }
@@ -68,7 +69,8 @@ namespace LinkedList
                 {
                     Node<T> NewNode = new Node<T>(value);
                     NewNode.Next = node.Next;
-                    cursor.Next = NewNode.Next;
+                    cursor.Next = NewNode;
+                    Count++;
                 }
             }
         }
